@@ -6,6 +6,8 @@ import math
 import matplotlib.pyplot as plt
 from PyQt5 import QtWidgets, QtGui
 
+POINTS = 100
+
 
 class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
     def __init__(self):
@@ -43,8 +45,9 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
 
 class Plot():
     def __init__(self):
-        self.x_array = np.linspace(0, 10, num=100)
-        self.y_array = np.zeros(100)
+        global POINTS
+        self.x_array = np.linspace(0, 10, num=POINTS)
+        self.y_array = np.zeros(POINTS)
 
     def add_function(self, func, A, B):
         i = 0

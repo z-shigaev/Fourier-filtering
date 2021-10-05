@@ -17,7 +17,7 @@ class Layout(QVBoxLayout):
         self.x = x
         self.y = y
         self.figure = plt.figure()
-        self.ax = self.figure.add_subplot(111)
+        self.ax = self.figure.add_axes([0, 0, 1, 1])
         self.ax.plot(x, y)
         self.canvas = FigureCanvas(self.figure)
         self.addWidget(self.canvas)

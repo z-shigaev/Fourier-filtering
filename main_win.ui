@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1002</width>
+    <width>1019</width>
     <height>874</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Fourier_filtering</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -118,11 +118,22 @@ border-color: rgb(0, 0, 0);</string>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QLabel" name="label_config_1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>340</width>
+          <width>1000</width>
           <height>60</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -130,17 +141,34 @@ border-color: rgb(0, 0, 0);</string>
         <property name="text">
          <string> Configuration of source signal</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QLabel" name="label_slct_func">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>160</width>
+            <width>1000</width>
             <height>60</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -148,12 +176,15 @@ border-color: rgb(0, 0, 0);</string>
           <property name="text">
            <string> Select function:</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_func">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -166,12 +197,32 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>160</width>
+            <width>1000</width>
             <height>60</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="currentText">
+           <string/>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
+          </property>
+          <property name="modelColumn">
+           <number>0</number>
           </property>
           <item>
            <property name="text">
@@ -196,6 +247,11 @@ border-color: rgb(0, 0, 0);</string>
             <width>30</width>
             <height>40</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -235,6 +291,11 @@ border-color: rgb(0, 0, 0);</string>
             <height>40</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
@@ -273,6 +334,11 @@ border-color: rgb(0, 0, 0);</string>
             <height>40</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
@@ -284,10 +350,28 @@ border-color: rgb(0, 0, 0);</string>
        </layout>
       </item>
       <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>RESET THE SIGNAL</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPlainTextEdit" name="pTE_list_func">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>320</width>
+          <width>1000</width>
           <height>80</height>
          </size>
         </property>
@@ -298,17 +382,40 @@ border-color: rgb(0, 0, 0);</string>
       </item>
       <item>
        <widget class="QLabel" name="label_config_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>320</width>
+          <width>1000</width>
           <height>60</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string> Configuration of noise</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::AutoText</enum>
+        </property>
+        <property name="scaledContents">
+         <bool>false</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -322,6 +429,11 @@ border-color: rgb(0, 0, 0);</string>
             <height>40</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
@@ -332,6 +444,12 @@ border-color: rgb(0, 0, 0);</string>
         </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_min">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -340,7 +458,7 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>140</width>
+            <width>1000</width>
             <height>16777215</height>
            </size>
           </property>
@@ -354,6 +472,11 @@ border-color: rgb(0, 0, 0);</string>
             <height>40</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
@@ -364,6 +487,12 @@ border-color: rgb(0, 0, 0);</string>
         </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_max">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -372,7 +501,7 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>140</width>
+            <width>1000</width>
             <height>16777215</height>
            </size>
           </property>
@@ -384,6 +513,12 @@ border-color: rgb(0, 0, 0);</string>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label_numb_noise">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -392,9 +527,14 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>160</width>
+            <width>1000</width>
             <height>40</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -406,6 +546,12 @@ border-color: rgb(0, 0, 0);</string>
         </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_numb_noise">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -414,7 +560,7 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>160</width>
+            <width>1000</width>
             <height>16777215</height>
            </size>
           </property>
@@ -432,9 +578,14 @@ border-color: rgb(0, 0, 0);</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>320</width>
+          <width>1000</width>
           <height>60</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Filter</string>
@@ -450,7 +601,7 @@ border-color: rgb(0, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1002</width>
+     <width>1019</width>
      <height>21</height>
     </rect>
    </property>
