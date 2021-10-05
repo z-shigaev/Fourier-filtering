@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1019</width>
+    <width>1040</width>
     <height>874</height>
    </rect>
   </property>
@@ -210,7 +210,7 @@ border-color: rgb(0, 0, 0);</string>
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="currentText">
-           <string/>
+           <string>Asin(Bx)</string>
           </property>
           <property name="iconSize">
            <size>
@@ -336,8 +336,26 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="acceptDrops">
+           <bool>true</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -350,7 +368,7 @@ border-color: rgb(0, 0, 0);</string>
        </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="btn_Reset_signal">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -431,7 +449,7 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>8</pointsize>
            </font>
           </property>
           <property name="styleSheet">
@@ -458,10 +476,83 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>1000</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>80</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="currentText">
+           <string>1</string>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtCurrent</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string>10^(-4)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^(-3)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^(-2)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^(-1)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^4</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item>
@@ -474,7 +565,7 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>8</pointsize>
            </font>
           </property>
           <property name="styleSheet">
@@ -501,10 +592,80 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>1000</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboBox_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>80</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="currentText">
+           <string>1</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>10^(-4)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^(-3)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^(-2)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^(-1)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10^4</string>
+           </property>
+          </item>
          </widget>
         </item>
        </layout>
@@ -569,6 +730,18 @@ border-color: rgb(0, 0, 0);</string>
        </layout>
       </item>
       <item>
+       <widget class="QPushButton" name="btn_Add_noise">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>ADD NOISE</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="btn_Filter">
         <property name="minimumSize">
          <size>
@@ -601,8 +774,8 @@ border-color: rgb(0, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1019</width>
-     <height>21</height>
+     <width>1040</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
