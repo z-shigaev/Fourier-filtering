@@ -5,11 +5,13 @@ import numpy as np
 import math
 import random as rnd
 import matplotlib.pyplot as plt
+from scipy.fft import rfft, rfftfreq
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtGui import QDoubleValidator as QDV
 from PyQt5.QtGui import QIntValidator as QIV
 
-POINTS = 1000
+POINTS = 100000
+TIME = 10
 
 
 class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
@@ -31,6 +33,7 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         self.btn_Add_func.clicked.connect(self.add_Function)
         self.btn_Reset_signal.clicked.connect(self.reset_signal)
         self.btn_Add_noise.clicked.connect(self.add_noise)
+        self.btn_Filter.clicked.connect(self.signal_spectrum)
         # Сигналы виджетов
         self.lineEdit_min_time.textEdited.connect(self.update_plot)
         self.lineEdit_max_time.textEdited.connect(self.update_plot)
@@ -53,6 +56,8 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         self.base_array.add_function(func, A, B, min, max)
         self.frame1_layout.draw(self.base_array)
         self.frame_1.setLayout(self.frame1_layout)
+        # Обновляем спектр частот
+        self.signal_spectrum()
         # print(self.base_array.get_arrays())
         # print(func)
         # print("Успех")
@@ -89,10 +94,20 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         else:
             min = float(self.lineEdit_min_time.text())
             max = float(self.lineEdit_max_time.text())
+            global TIME
+            TIME = max - min
             self.base_array.rewrite_arrays(min=min, max=max)
             self.frame1_layout.draw(self.base_array)
             self.frame_1.setLayout(self.frame1_layout)
 
+    def signal_spectrum(self):
+        self.spectrum_y = rfft(self.base_array.get_arrays()[1])
+        self.spectrum_y = (np.absolute(self.spectrum_y))/POINTS
+        self.spectrum_x = rfftfreq(POINTS, TIME/POINTS) # длина массива и 1/частота дискретизации
+        spectrum_array = self.spectrum_x, self.spectrum_y
+        self.frame2_layout.draw_spectrum(spectrum_array)
+        self.frame_2.setLayout(self.frame2_layout)
+        # print(TIME)
 
 
 class Plot():
@@ -139,7 +154,7 @@ class Plot():
         i = 0
         if func == 'Asin(Bx)':
             for m in self.x_array:
-                a = self.y_array[i] + float(A) * math.sin(float(B) * m)
+                a = self.y_array[i] + float(A) * math.sin(2*math.pi*float(B) * m)
                 self.y_array[i] = a
                 if m > self.x_max:
                     self.x_max = m
@@ -153,7 +168,7 @@ class Plot():
             pass
         elif func == 'Acos(Bx)':
             for m in self.x_array:
-                a = self.y_array[i] + float(A) * math.cos(float(B) * m)
+                a = self.y_array[i] + float(A) * math.cos(2*math.pi*float(B) * m)
                 self.y_array[i] = a
                 if m > self.x_max:
                     self.x_max = m
