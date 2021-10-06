@@ -117,37 +117,86 @@ border-color: rgb(0, 0, 0);</string>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="label_config_1">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>1000</width>
-          <height>60</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string> Configuration of source signal</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="wordWrap">
-         <bool>false</bool>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_time">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Time(s), min/max</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit_min_time">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLineEdit" name="lineEdit_max_time">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>10</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QLabel" name="label_config_1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string> Configuration of source signal</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -281,6 +330,9 @@ border-color: rgb(0, 0, 0);</string>
             <height>40</height>
            </size>
           </property>
+          <property name="text">
+           <string>0</string>
+          </property>
          </widget>
         </item>
         <item>
@@ -317,6 +369,9 @@ border-color: rgb(0, 0, 0);</string>
             <width>80</width>
             <height>40</height>
            </size>
+          </property>
+          <property name="text">
+           <string>0</string>
           </property>
          </widget>
         </item>
@@ -483,7 +538,7 @@ border-color: rgb(0, 0, 0);</string>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="comboBox_min">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -503,29 +558,34 @@ border-color: rgb(0, 0, 0);</string>
            </size>
           </property>
           <property name="currentText">
-           <string>1</string>
+           <string>-4</string>
           </property>
           <property name="insertPolicy">
            <enum>QComboBox::InsertAtCurrent</enum>
           </property>
           <item>
            <property name="text">
-            <string>10^(-4)</string>
+            <string>-4</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^(-3)</string>
+            <string>-3</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^(-2)</string>
+            <string>-2</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^(-1)</string>
+            <string>-1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>0</string>
            </property>
           </item>
           <item>
@@ -535,22 +595,17 @@ border-color: rgb(0, 0, 0);</string>
           </item>
           <item>
            <property name="text">
-            <string>10^1</string>
+            <string>2</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^2</string>
+            <string>3</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>10^4</string>
+            <string>4</string>
            </property>
           </item>
          </widget>
@@ -599,7 +654,7 @@ border-color: rgb(0, 0, 0);</string>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_2">
+         <widget class="QComboBox" name="comboBox_max">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -619,26 +674,31 @@ border-color: rgb(0, 0, 0);</string>
            </size>
           </property>
           <property name="currentText">
-           <string>1</string>
+           <string>-4</string>
           </property>
           <item>
            <property name="text">
-            <string>10^(-4)</string>
+            <string>-4</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^(-3)</string>
+            <string>-3</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^(-2)</string>
+            <string>-2</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^(-1)</string>
+            <string>-1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>0</string>
            </property>
           </item>
           <item>
@@ -648,22 +708,17 @@ border-color: rgb(0, 0, 0);</string>
           </item>
           <item>
            <property name="text">
-            <string>10^1</string>
+            <string>2</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^2</string>
+            <string>3</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10^3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>10^4</string>
+            <string>4</string>
            </property>
           </item>
          </widget>
@@ -775,7 +830,7 @@ border-color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1040</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
