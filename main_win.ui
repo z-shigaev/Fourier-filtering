@@ -23,7 +23,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
          <widget class="QFrame" name="frame_1">
           <property name="sizePolicy">
@@ -54,7 +54,7 @@ border-color: rgb(0, 0, 0);</string>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="label_x_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -64,13 +64,13 @@ border-color: rgb(0, 0, 0);</string>
             <property name="minimumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="font">
@@ -90,7 +90,7 @@ border-color: rgb(0, 0, 0);</string>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="lineEdit_graph_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -100,19 +100,19 @@ border-color: rgb(0, 0, 0);</string>
             <property name="minimumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="verticalSlider">
+           <widget class="QSlider" name="verticalSlider_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -137,14 +137,69 @@ border-color: rgb(0, 0, 0);</string>
             <property name="maximum">
              <number>100</number>
             </property>
+            <property name="value">
+             <number>100</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
             <property name="invertedAppearance">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="invertedControls">
              <bool>true</bool>
+            </property>
+            <property name="tickPosition">
+             <enum>QSlider::NoTicks</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_per_1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>100</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_OK_1">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>OK</string>
             </property>
            </widget>
           </item>
@@ -191,7 +246,7 @@ border-color: rgb(0, 0, 0);</string>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="label_x_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -201,13 +256,13 @@ border-color: rgb(0, 0, 0);</string>
             <property name="minimumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="font">
@@ -227,7 +282,7 @@ border-color: rgb(0, 0, 0);</string>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_2">
+           <widget class="QLineEdit" name="lineEdit_graph_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -237,13 +292,13 @@ border-color: rgb(0, 0, 0);</string>
             <property name="minimumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
            </widget>
@@ -251,7 +306,7 @@ border-color: rgb(0, 0, 0);</string>
           <item>
            <widget class="QSlider" name="verticalSlider_2">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -274,14 +329,69 @@ border-color: rgb(0, 0, 0);</string>
             <property name="maximum">
              <number>100</number>
             </property>
+            <property name="value">
+             <number>100</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
             <property name="invertedAppearance">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="invertedControls">
              <bool>true</bool>
+            </property>
+            <property name="tickPosition">
+             <enum>QSlider::NoTicks</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_per_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>100</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_OK_2">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>OK</string>
             </property>
            </widget>
           </item>
@@ -297,7 +407,7 @@ border-color: rgb(0, 0, 0);</string>
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <widget class="QFrame" name="frame_3">
           <property name="sizePolicy">
@@ -328,7 +438,7 @@ border-color: rgb(0, 0, 0);</string>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="label_x_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -338,13 +448,13 @@ border-color: rgb(0, 0, 0);</string>
             <property name="minimumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="font">
@@ -364,7 +474,7 @@ border-color: rgb(0, 0, 0);</string>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_3">
+           <widget class="QLineEdit" name="lineEdit_graph_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -374,13 +484,13 @@ border-color: rgb(0, 0, 0);</string>
             <property name="minimumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>60</width>
-              <height>40</height>
+              <height>20</height>
              </size>
             </property>
            </widget>
@@ -388,7 +498,7 @@ border-color: rgb(0, 0, 0);</string>
           <item>
            <widget class="QSlider" name="verticalSlider_3">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -411,14 +521,69 @@ border-color: rgb(0, 0, 0);</string>
             <property name="maximum">
              <number>100</number>
             </property>
+            <property name="value">
+             <number>100</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
             <property name="invertedAppearance">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="invertedControls">
              <bool>true</bool>
+            </property>
+            <property name="tickPosition">
+             <enum>QSlider::NoTicks</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_per_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>100</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_OK_3">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>OK</string>
             </property>
            </widget>
           </item>
@@ -439,6 +604,12 @@ border-color: rgb(0, 0, 0);</string>
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>140</width>
+            <height>0</height>
+           </size>
           </property>
           <property name="maximumSize">
            <size>
@@ -472,7 +643,7 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>100</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
@@ -491,7 +662,7 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>100</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
@@ -596,7 +767,7 @@ border-color: rgb(0, 0, 0);</string>
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="currentText">
-           <string>Asin(Bx)</string>
+           <string>Asin(2*pi*Bx)</string>
           </property>
           <property name="iconSize">
            <size>
@@ -612,12 +783,12 @@ border-color: rgb(0, 0, 0);</string>
           </property>
           <item>
            <property name="text">
-            <string>Asin(Bx)</string>
+            <string>Asin(2*pi*Bx)</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Acos(Bx)</string>
+            <string>Acos(2*pi*Bx)</string>
            </property>
           </item>
          </widget>
@@ -674,7 +845,7 @@ border-color: rgb(0, 0, 0);</string>
            </size>
           </property>
           <property name="text">
-           <string>0</string>
+           <string>1</string>
           </property>
          </widget>
         </item>
@@ -726,7 +897,7 @@ border-color: rgb(0, 0, 0);</string>
            </size>
           </property>
           <property name="text">
-           <string>0</string>
+           <string>1</string>
           </property>
          </widget>
         </item>
@@ -902,6 +1073,9 @@ border-color: rgb(0, 0, 0);</string>
             <height>16777215</height>
            </size>
           </property>
+          <property name="text">
+           <string>-1</string>
+          </property>
          </widget>
         </item>
         <item>
@@ -930,7 +1104,10 @@ border-color: rgb(0, 0, 0);</string>
            </font>
           </property>
           <property name="currentText">
-           <string>-4</string>
+           <string>0</string>
+          </property>
+          <property name="currentIndex">
+           <number>4</number>
           </property>
           <property name="insertPolicy">
            <enum>QComboBox::InsertAtCurrent</enum>
@@ -1029,6 +1206,9 @@ border-color: rgb(0, 0, 0);</string>
             <height>16777215</height>
            </size>
           </property>
+          <property name="text">
+           <string>1</string>
+          </property>
          </widget>
         </item>
         <item>
@@ -1052,7 +1232,10 @@ border-color: rgb(0, 0, 0);</string>
            </size>
           </property>
           <property name="currentText">
-           <string>-4</string>
+           <string>0</string>
+          </property>
+          <property name="currentIndex">
+           <number>4</number>
           </property>
           <item>
            <property name="text">
@@ -1214,7 +1397,7 @@ border-color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1226</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

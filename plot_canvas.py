@@ -36,6 +36,15 @@ class Layout(QVBoxLayout):
         self.ax.plot(self.x, self.y)
         self.canvas.draw()
 
+    def re_draw(self, image_array):
+        self.figure.clear()
+        self.ax = self.figure.add_axes([0.05, 0.1, 0.93, 0.85])
+        self.ax.grid()
+        self.x = image_array[0]
+        self.y = image_array[1]
+        self.ax.plot(self.x, self.y)
+        self.canvas.draw()
+
     def draw_spectrum(self, spectrum_array):
         self.figure.clear()
         self.ax = self.figure.add_axes([0.05, 0.1, 0.93, 0.85])

@@ -35,9 +35,15 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         self.btn_Reset_signal.clicked.connect(self.reset_signal)
         self.btn_Add_noise.clicked.connect(self.add_noise)
         self.btn_Filter.clicked.connect(self.signal_spectrum)
+        self.btn_OK_1.clicked.connect(self.image_1)
+        self.btn_OK_2.clicked.connect(self.image_2)
+        self.btn_OK_3.clicked.connect(self.image_3)
         # Сигналы виджетов
         self.lineEdit_FD.textEdited.connect(self.update_plot)
         self.lineEdit_points.textEdited.connect(self.update_plot)
+        self.verticalSlider_1.sliderReleased.connect(self.slider1)
+        self.verticalSlider_2.sliderReleased.connect(self.slider2)
+        self.verticalSlider_3.sliderReleased.connect(self.slider3)
         # Настройки виджетов
         # self.lineEdit_min.setValidator(QIV(0, 9))
         # self.lineEdit_min.setValidator(QDV(1, 9999, 4, self))
@@ -71,8 +77,11 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         max = float(max) * 10 ** float(max_degree)
         # print(max)
         self.base_array.add_noise(min, max)
-        self.frame1_layout.draw(self.base_array)
-        self.frame_1.setLayout(self.frame1_layout)
+        if self.verticalSlider_1.value() != '':
+            self.image_1()
+        else:
+            self.frame1_layout.draw(self.base_array)
+            self.frame_1.setLayout(self.frame1_layout)
 
     def reset_signal(self):
         self.base_array.reset_arrays()
@@ -103,6 +112,38 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         self.frame2_layout.draw_spectrum(spectrum_array)
         self.frame_2.setLayout(self.frame2_layout)
         # print(TIME)
+
+    def slider1(self):
+        m = self.verticalSlider_1.value()
+        self.lineEdit_per_1.setText(str(m))
+
+    def slider2(self):
+        m = self.verticalSlider_2.value()
+        self.lineEdit_per_2.setText(str(m))
+
+    def slider3(self):
+        m = self.verticalSlider_3.value()
+        self.lineEdit_per_3.setText(str(m))
+
+    def image_1(self):
+        x = float(self.lineEdit_graph_1.text())
+        print(x)
+        percents = float(self.lineEdit_per_1.text())
+        print(percents)
+        image_array = self.base_array.current_image(x, percents)
+        if image_array[0] == []:
+            pass
+        else:
+            self.frame1_layout.re_draw(image_array)
+            self.frame_1.setLayout(self.frame1_layout)
+
+    def image_2(self):
+        x = float(self.lineEdit_graph_2.text())
+        percents = self.verticalSlider_2.value()
+
+    def image_3(self):
+        x = float(self.lineEdit_graph_3.text())
+        percents = self.verticalSlider_3.value()
 
 
 class Plot():
@@ -182,6 +223,48 @@ class Plot():
 
     def get_arrays(self):
         return self.x_array, self.y_array
+
+    def current_image(self, x, percents):
+        if x == '':
+            return [], []
+        else:
+            if x > self.x_array[-1]:
+                return [], []
+            elif x < self.x_array[0]:
+                return [], []
+            else:
+                half_percents = percents / 2
+                i = 0
+                index = -1
+                left = 0
+                for m in self.x_array:
+                    if m == x:
+                        index = i
+                        break
+                    elif m < x:
+                        left = m
+                        if self.x_array[i+1] > x:
+                            index = i
+                            break
+                    i += 1
+                length = len(self.x_array)
+                step = (half_percents/100)*length
+                bord_left = index - step
+                print(bord_left)
+                bord_right = index + step
+                print(bord_right)
+                if int(bord_right) > length:
+                    bord_right = length
+                if int(bord_left) < 0:
+                    bord_left = 0
+                self.image_x = self.x_array[int(bord_left):int(bord_right)]
+                self.image_y = self.y_array[int(bord_left):int(bord_right)]
+                print(self.image_x)
+                return self.image_x, self.image_y
+
+
+
+
 
 
 if __name__ == '__main__':
