@@ -10,7 +10,8 @@ from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtGui import QDoubleValidator as QDV
 from PyQt5.QtGui import QIntValidator as QIV
 
-POINTS = 100000
+POINTS = 10000
+FD = 25000
 TIME = 10
 
 
@@ -35,8 +36,8 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         self.btn_Add_noise.clicked.connect(self.add_noise)
         self.btn_Filter.clicked.connect(self.signal_spectrum)
         # Сигналы виджетов
-        self.lineEdit_min_time.textEdited.connect(self.update_plot)
-        self.lineEdit_max_time.textEdited.connect(self.update_plot)
+        self.lineEdit_FD.textEdited.connect(self.update_plot)
+        self.lineEdit_points.textEdited.connect(self.update_plot)
         # Настройки виджетов
         # self.lineEdit_min.setValidator(QIV(0, 9))
         # self.lineEdit_min.setValidator(QDV(1, 9999, 4, self))
@@ -51,9 +52,7 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         self.list_func = self.list_func + str_func + "   "
         self.pTE_list_func.setPlainText('')
         self.pTE_list_func.setPlainText(self.list_func)
-        min = float(self.lineEdit_min_time.text())
-        max = float(self.lineEdit_max_time.text())
-        self.base_array.add_function(func, A, B, min, max)
+        self.base_array.add_function(func, A, B)
         self.frame1_layout.draw(self.base_array)
         self.frame_1.setLayout(self.frame1_layout)
         # Обновляем спектр частот
@@ -79,31 +78,27 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
         self.base_array.reset_arrays()
         self.frame1_layout.draw(self.base_array)
         self.frame_1.setLayout(self.frame1_layout)
+        self.signal_spectrum()
         self.list_func = ''
         self.pTE_list_func.setPlainText('')
 
     def update_plot(self):
-        if self.lineEdit_min_time.text() == '':
+        if self.lineEdit_FD.text() == '':
             pass
-        elif self.lineEdit_min_time.text() == '-':
-            pass
-        elif self.lineEdit_max_time.text() == '':
-            pass
-        elif self.lineEdit_max_time.text() == '-':
+        elif self.lineEdit_points.text() == '':
             pass
         else:
-            min = float(self.lineEdit_min_time.text())
-            max = float(self.lineEdit_max_time.text())
-            global TIME
-            TIME = max - min
-            self.base_array.rewrite_arrays(min=min, max=max)
+            global FD, POINTS
+            FD = float(self.lineEdit_FD.text())
+            POINTS = float(self.lineEdit_points.text())
+            self.base_array.rewrite_arrays(fd=FD, points=POINTS)
             self.frame1_layout.draw(self.base_array)
             self.frame_1.setLayout(self.frame1_layout)
 
     def signal_spectrum(self):
         self.spectrum_y = rfft(self.base_array.get_arrays()[1])
         self.spectrum_y = (np.absolute(self.spectrum_y))/POINTS
-        self.spectrum_x = rfftfreq(POINTS, TIME/POINTS) # длина массива и 1/частота дискретизации
+        self.spectrum_x = rfftfreq(int(POINTS), 1/FD) # длина массива и 1/частота дискретизации
         spectrum_array = self.spectrum_x, self.spectrum_y
         self.frame2_layout.draw_spectrum(spectrum_array)
         self.frame_2.setLayout(self.frame2_layout)
@@ -113,39 +108,28 @@ class MainWindow(QtWidgets.QMainWindow, main_win.Ui_MainWindow):
 class Plot():
     def __init__(self):
         global POINTS
-        self.x_array = np.linspace(0, 10, num=POINTS)
-        self.y_array = np.zeros(POINTS)
+        global FD
+        self.x_array = np.arange(float(POINTS))/float(FD)
+        self.y_array = np.zeros(int(POINTS))
         self.x_min = 0
         self.x_max = 0
         self.y_min = 0
         self.y_max = 0
         self.array_functions = []
-        self.old_min_time = 0
-        self.old_max_time = 10
+        self.old_FD = 25000
+        self.old_POINTS = 100000
 
-    def add_function(self, func, A, B, min, max):
+    def add_function(self, func, A, B):
         self.array_functions.append([func, A, B])
-        if self.old_min_time != min or self.old_max_time != max:
-            self.old_min_time = min
-            self.old_max_time = max
-            self.rewrite_arrays()
-        else:
-            self.add_one_function(func, A, B)
-        # self.array_functions.append([func, A, B])
+        self.add_one_function(func, A, B)
 
-        # print(self.y_array)
-    # for m in self.x_array:
-    #     a = math.sin(m)
-    #     self.y_array.append(a)
-    # pass
-
-    def rewrite_arrays(self, min=None, max=None):
-        if min != None:
-            if max != None:
-                self.old_min_time = min
-                self.old_max_time = max
-        self.x_array = np.linspace(self.old_min_time, self.old_max_time, num=POINTS)
-        self.y_array = np.zeros(POINTS)
+    def rewrite_arrays(self, fd=None, points=None):
+        if fd != None:
+            if points != None:
+                self.old_FD = fd
+                self.old_POINTS = points
+        self.x_array = np.arange(float(POINTS))/float(FD)
+        self.y_array = np.zeros(int(POINTS))
         for m in self.array_functions:
             self.add_one_function(m[0], m[1], m[2])
 
@@ -192,8 +176,9 @@ class Plot():
             # print(noise)
 
     def reset_arrays(self):
-        self.x_array = np.linspace(self.old_min_time, self.old_max_time, num=POINTS)
-        self.y_array = np.zeros(POINTS)
+        self.x_array = np.arange(float(POINTS))/float(FD)
+        self.y_array = np.zeros(int(POINTS))
+        self.array_functions = []
 
     def get_arrays(self):
         return self.x_array, self.y_array

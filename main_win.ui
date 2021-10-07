@@ -446,11 +446,16 @@ border-color: rgb(0, 0, 0);</string>
             <height>16777215</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
-           <string>Time(s), min/max</string>
+           <string>FD(p/sec), POINTS</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -458,7 +463,7 @@ border-color: rgb(0, 0, 0);</string>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit_min_time">
+         <widget class="QLineEdit" name="lineEdit_FD">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -472,12 +477,12 @@ border-color: rgb(0, 0, 0);</string>
            </size>
           </property>
           <property name="text">
-           <string>0</string>
+           <string>25000</string>
           </property>
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QLineEdit" name="lineEdit_max_time">
+         <widget class="QLineEdit" name="lineEdit_points">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -491,7 +496,7 @@ border-color: rgb(0, 0, 0);</string>
            </size>
           </property>
           <property name="text">
-           <string>10</string>
+           <string>10000</string>
           </property>
          </widget>
         </item>
@@ -1209,7 +1214,7 @@ border-color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1226</width>
-     <height>34</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
