@@ -1287,9 +1287,27 @@ border-color: rgb(0, 0, 0);</string>
        </layout>
       </item>
       <item>
+       <widget class="QPushButton" name="btn_Add_noise">
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>ADD NOISE</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="label_numb_noise">
+         <widget class="QLabel" name="label_trigger_level">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -1317,12 +1335,12 @@ border-color: rgb(0, 0, 0);</string>
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
-           <string> Number of points:  </string>
+           <string>Trigger level:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_numb_noise">
+         <widget class="QLineEdit" name="lineEdit_trigger_level">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1344,24 +1362,6 @@ border-color: rgb(0, 0, 0);</string>
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btn_Add_noise">
-        <property name="maximumSize">
-         <size>
-          <width>1000</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>ADD NOISE</string>
-        </property>
-       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btn_Filter">
@@ -1397,7 +1397,7 @@ border-color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1226</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
